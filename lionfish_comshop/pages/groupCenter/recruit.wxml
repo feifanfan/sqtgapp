@@ -1,0 +1,13 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+
+<view>
+  <view class="section">
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+    </view>
+    <view class="apply-btn" bindtap="goLink" data-link="/lionfish_comshop/pages/groupCenter/apply">点击申请</view>
+  </view>
+  <i-aside-btn showHome="{{true}}"></i-aside-btn>
+</view>
+
+<i-new-auth needAuth="{{needAuth&&showAuthModal}}" bind:authSuccess="authSuccess" bind:cancel="authModal" needPosition="{{false}}"></i-new-auth>

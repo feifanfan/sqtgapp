@@ -1,0 +1,72 @@
+<view class='page-wrap'>
+  <!--搜索框begin-->
+  <view class='search-bar'>
+    <view class='search-box'>
+      <input class='ipt' placeholder="搜索商品" confirm-type="搜索" type="text" bindconfirm="goResult"></input>
+      <view class='search-icon'>
+        <text class="iconfont icon-sousuo1"></text>
+      </view>
+    </view>
+  </view>
+  <view class="page-content">
+    <scroll-view scrollWithAnimation scrollY class="page-category" scrollTop="{{categoryScrollBarTop}}" style="height:{{scrollViewHeight}}px">
+      <view bindtap="changeCategory" class="category-item {{rushCategoryData.activeIndex===index?'active':''}}" data-index="{{index}}" wx:for="{{rushCategoryData.tabs}}" wx:key="index">
+        <view class="item-border"></view>
+        <view>{{item.name}}</view>
+      </view>
+      <view class="category-item"></view>
+    </scroll-view>
+    <!-- 子栏目 -->
+    <view class='mask' hidden='{{!showDrop}}' bindtap='showDrop'></view>
+    <view class='sub-cate' wx:if="{{rushCategoryData.tabs[rushCategoryData.activeIndex].sub.length}}">
+      <scroll-view class='sub-cate-scroll' scroll-x scrollLeft="{{scrollLeft}}">
+        <view class='sub-cate-item {{active_sub_index==0?"active":""}}' data-idx="0" data-id='{{rushCategoryData.tabs[rushCategoryData.activeIndex].id}}' bindtap='change_sub_cate'>默认</view>
+        <view class='sub-cate-item {{active_sub_index==index+1?"active":""}}' wx:for="{{rushCategoryData.tabs[rushCategoryData.activeIndex].sub}}" wx:key="id" data-idx="{{index+1}}" data-id='{{item.id}}' bindtap='change_sub_cate'>{{item.name}}</view>
+      </scroll-view>
+      <view class='icon-open' bindtap='showDrop'>
+        <image class="openImg {{showDrop?'':'down'}}" src="../../images/commentsOpen.png"></image>
+      </view>
+    </view>
+    <view class='sub-cate-hide' wx:if="{{rushCategoryData.tabs[rushCategoryData.activeIndex].sub.length&&showDrop}}">
+      <view class='sub-cate-item {{active_sub_index==0?"active":""}}' data-idx="0" data-id='{{rushCategoryData.tabs[rushCategoryData.activeIndex].id}}' bindtap='change_sub_cate'>默认</view>
+      <view class='sub-cate-item {{active_sub_index==index+1?"active":""}}' wx:for="{{rushCategoryData.tabs[rushCategoryData.activeIndex].sub}}" wx:key="id" data-idx="{{index+1}}" data-id='{{item.id}}' bindtap='change_sub_cate'>{{item.name}}</view>
+    </view>
+    <!-- 列表 -->
+    <scroll-view scrollWithAnimation scrollY bindscroll="scroll" bindscrolltolower="scrollBottom" bindtouchend="touchend" bindtouchstart="touchstart" class="page-list {{rushCategoryData.tabs[rushCategoryData.activeIndex].sub.length?'pt50':''}}" lowerThreshold="{{200}}"
+      scrollTop="{{resetScrollBarTop}}" style="height:{{scrollViewHeight}}px" upperThreshold="{{50}}">
+      <view class="scroll-col-tip-top">
+        <span wx:if="{{isFirstCategory}}">已经拉到最顶部啦～</span>
+        <block wx:else>
+          <span>下拉查看上一个分类</span>
+        </block>
+      </view>
+      <view style="min-height: {{scrollViewHeight+50}}px;">
+        <block wx:if="{{!pageEmpty}}">
+          <i-type-item wx:for="{{rushList}}" wx:key="actId" spuItem="{{item}}" reduction="{{reduction}}" stopClick="{{stopClick}}" bind:openSku="openSku" bind:changeCartNum="changeCartNum" changeCarCount="{{changeCarCount}}" needAuth="{{needAuth}}" bind:authModal="authModal" is_open_vipcard_buy="{{is_open_vipcard_buy}}" canLevelBuy="{{canLevelBuy}}" />
+        </block>
+        <view class="none-rush-list" wx:elif="{{pageEmpty}}">
+          <image class="img-block" src="../../images/icon-index-empty.png"></image>
+          <view class="h1">暂时没有团购</view>
+          <view class="h2">我们正在为您准备更优惠的团购</view>
+        </view>
+        <view wx:if="{{loadMore}}">
+          <i-load-more loading="{{loadMore}}" tip="{{loadText}}"></i-load-more>
+        </view>
+        <view class="scroll-col-tip-bottom" wx:elif="{{canNext}}">
+          <span wx:if="{{isLastCategory}}">看到我的底线了吗～</span>
+          <block wx:else>
+            <span>上拉查看下一个分类</span>
+          </block>
+        </view>
+        <view style="height:100rpx;"></view>
+      </view>
+    </scroll-view>
+  </view>
+  <i-tabbar currentIdx='1' cartNum='{{cartNum}}' class="tabbar {{isIpx?'pb20':''}}" />
+</view>
+
+<i-new-auth needAuth="{{needAuth&&showAuthModal}}" bind:authSuccess="authSuccess" bind:cancel="authModal" needPosition="{{needPosition}}" navBackUrl="/lionfish_comshop/pages/type/index"></i-new-auth>
+
+<i-sku visible="{{visible}}" skuList="{{skuList}}" cur_sku_arr="{{cur_sku_arr}}" bind:cancel="closeSku" sku_val="{{sku_val}}" sku="{{sku}}" goodsid="{{addCar_goodsid}}" bind:changeCartNum="changeCartNum" vipInfo="{{vipInfo}}"></i-sku>
+
+<i-change-community visible="{{showChangeCommunity}}" changeCommunity="{{changeCommunity}}" community="{{community}}" bind:changeComunity="confrimChangeCommunity" canChange="{{hide_community_change_btn==0}}" groupInfo="{{groupInfo}}"></i-change-community>

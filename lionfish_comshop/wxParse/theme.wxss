@@ -1,0 +1,264 @@
+
+/** 红色色调begin **/
+.pin .nav .cur{
+	background:#ff473f;
+}
+.pin .pin_top_icon{
+	background:#ff473f;
+}
+.pin .goods_box .content .price_box .span{
+	color:#ff473f;
+}
+.pin .goods_box .content .open_tuan_btn {
+	background:#ff473f;
+}
+.pin .p_price{
+	color:#ff473f;
+}
+.pin .bottom-nav-item.active{
+	color:#DF2127;
+}
+.pin .active .m-icon-car,.pin .active .m-icon-car::before{
+  color:#ff473f;
+}
+.pin .active .m-shop-me,.pin .active .m-shop-me::before{
+  color:#ff473f;
+}
+.pin .active .m-icon-weibiaoti210,.pin .active .m-icon-weibiaoti210::before{
+  color:#ff473f;
+}
+
+.pin .footbar-like .m-icon-like, .pin .footbar-like .m-icon-like::before{
+  color:#DF2127;
+}
+
+.pin .pin_info_number{
+	color:#ff473f;
+	background:none;
+}
+.pin .bottom-nav-item.active .m-png-index{
+	background:url('https://mall.shiziyu888.com/dan/Common/image/index_cur_pin.png' ) no-repeat 0 0;
+	background-size:contain;
+}
+.pin .root-active{
+	color:#ff473f;
+}
+
+.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight, .pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-down:before, .pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-menu:before, .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-up:before, .pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-down:before, .pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-menu:before,.pin  .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-up:before {
+    color: #ff473f!important;
+}
+.pin .double-grid-item .detail .b{
+	color: #ff473f;
+}
+.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-down:before,.pin  .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-menu:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-up:before, .pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-down:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-menu:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-up:before {
+    color: #ff473f!important;
+}
+
+.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-down:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-menu:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .android-sort-droplist-trigger-up:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-down:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-menu:before,.pin .search-sort-with-filter .search-sort-tab .sort-tab-highlight .sort-droplist-trigger-up:before {
+    color: #ff473f!important;
+}
+
+.pin .search-sort-with-filter .search-sort-tab .price-up-hightlight {
+    border-top-color: #ff473f;
+}
+.pin .search-sort-with-filter .search-sort-tab .price-up-hightlight:before {
+    color: #ff473f;
+}
+.pin .search-sort-with-filter .search-sort-tab .price-down-hightlight:before {
+	color: #ff473f;
+}
+.pin .empty-cart .cart-btn {
+    border: 1px solid #ff473f;
+    color: #ff473f;
+}
+.pin .checkout .info .price {
+    color: #ff473f;
+}
+.pin .checkout .ff_color{
+  background-color:#ff473f;
+}
+.pin .cart-delete {
+    background-color: #ff473f;
+}
+
+.pin .head-box{
+  background:linear-gradient(#fef7f8, rgb(238, 86, 104));
+  
+}
+.pin .collection-tips .collection-header .item-text .item-main .item-pintuan {
+   
+    background: url(http://mall.shiziyu888.com/Common/images/my_pintuan_red.png) no-repeat 30rpx 24rpx ;
+    background-size: 40rpx ;
+}
+.pin .collection-tips .collection-header .item-text .item-main .item-quan {
+   
+    background: url(http://mall.shiziyu888.com/Common/images/my_quan_red.png) no-repeat 30rpx 24rpx ;
+    background-size: 40rpx ;
+}
+.pin .head-box .address-link .user-address{
+  background:none;
+}
+.pin #prompt-default .content-wrapper .buttons .button{
+
+  background:#ff473f;
+}
+.pin .pin_goods_price{
+  color:#ff473f;
+}
+.pin .pin_info_go {
+  background-color: #ff473f;
+}
+.pin .tag {
+    
+    background: none; 
+    color: #ff4d45;
+}
+.pin .pintuan-head--title{
+    color:#ff4d45;
+}
+.pin .tabs-nav .tabs-tab-active {
+    color: #ff4d45;
+}
+.pin .footbar-buy{
+  background-color: rgba(254,78,69,.6);
+  color:#fff;
+}
+.pin .content-btns--cart{
+   background-color: rgba(254,78,69,.6);
+  color:#fff;
+}
+.pin .footbar-tuan{
+  background-color: #ff473f;
+}
+.pin .content-btns--buy{
+  background: -webkit-linear-gradient(left,#ff473f,#ff473f);
+  background: linear-gradient(90deg,#ff473f,#ff473f);
+  color:#fff;
+}
+.pin .footbar-like{
+  color:#ff4d45;
+}
+.pin .footbar-like .footbar-shop--text {
+  color:#ff4d45;
+}
+.pin .tabs-nav .tabs-tab-active {
+  color: #ff4d45;
+}
+.pin .paybar-sum--red{
+    color: #ff4d45;
+}
+.pin .paybar-btn{
+  background-color:#ff473f;
+}
+.pin .goods-choose {
+    color: #ff4d45;
+}
+.pin .prop-item.is-selected {
+    color: #ff4d45;
+    border-color: #ff473f;
+}
+.pin .number-calculator--increase, .number-calculator--reduce {
+    color: #ff4d45;
+}
+.pin .number-calculator--increase, .number-calculator--reduce {
+    color: #ff4d45;
+}
+.pin .foot-okbtn {
+    background: -webkit-linear-gradient(left,#ff473f,#ff473f);
+    background: linear-gradient(90deg,#ff473f,#ff473f);
+   
+}
+.pin .red{
+  color:#ff4d45;
+}
+.pin .status{
+    background: #ff473f;
+}
+.pin .foot-price--sum {
+    color: #ff4d45;
+}
+.pin .withdrawals {
+    border: 1px solid #ff473f;
+    color: #ff473f;
+}
+.pin .my-memvers .member-count-number {
+    color: #ff473f;
+}
+.pin .strong {
+    color: #ff473f;
+}
+.pin .spike-buy .all-price .sale-price {
+    
+    color: #ff5777;
+}
+.pin .spike-button-on .quantity {
+    border: 1px solid #ff473f;
+}
+.pin .spike-button-on .btnClass {
+    background-color: #ff473f;
+}
+.pin .right-price {
+
+	color: #ff5777
+}
+.pin .card-content {
+    background-size: cover;
+    background-repeat: no-repeat;
+	background-image: url(https://mall.shiziyu888.com/Common/image/117603130_6i5767h706g683dj35febbc2c37a4_176x116pin.png);
+}
+.pin .tabs-nav .tabs-tab-active {
+  color: #ff473f;
+}
+.pin .item .border {
+	border-bottom: 1px dotted #ff473f
+}
+.pin .tabs.tabs-card>.tabs-bar .tabs-tab-active {
+    color: #ff473f;
+}
+.pin .shop-title--status {
+    color: #ff473f;
+}
+.pin .pay-price--content{
+    color: #ff473f;
+}
+.pin .primary{
+    background: #ff473f;
+}
+
+.pin .operate-button--white.primary{
+    background: #fdfdfd;
+}
+.pin .meili-all-vue-base-button.primary{
+  background: #fdfdfd;
+}
+.pin .meili-all-vue-base-button.navigator-hover{
+  background:#ff473f;
+
+}
+.pin .bottom-nav-item.active .m-icon-new{
+  background: url('https://mall.shiziyu888.com/Common/image/new_cur_pin.png' ) no-repeat 0 0;
+  background-size: contain;
+  
+}
+.pin .bottom-nav-item.active .m-icon-rank{
+  background: url('https://mall.shiziyu888.com/Common/image/paihang_cur_pin.png' ) no-repeat 0 0;
+  background-size: contain;
+}
+.pin .page-top .operate-btn {
+   
+    background: #ff473f;
+}
+.pin .page-detail-right .cut {
+    color: #ff473f;
+}
+.pin .page-detail-right .cut-num .tag{
+    
+    background: none;
+}
+.pin .page-top .page-top-wrapper {
+    background: none;
+}
+.pin .page-top .page-top-wrapper:after{
+  display:none;
+}
+/** 红色色调end **/

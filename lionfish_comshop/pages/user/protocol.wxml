@@ -1,0 +1,6 @@
+<view>
+    <navigator class="list-item" wx:if="{{list}}" wx:for="{{list}}" wx:key="id" url="/lionfish_comshop/pages/user/articleProtocol?id={{item.id}}">
+        <span>{{item.title}}</span>
+        <image class="icon-right right-arrow" src="../../images/rightArrowImg.png"></image>
+    </navigator>
+</view>

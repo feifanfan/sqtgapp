@@ -1,0 +1,62 @@
+<!--pages/dynamic/index.wxml-->
+<view wx:if="{{loadover}}" class="{{theme_type}}">
+  <view class="section">
+    <scroll-view class='scroll-wrapper' scroll-y enable-back-to-top bindscrolltoupper="pullRefresh" upper-threshold='50' bindscrolltolower="loadMore">
+      <view class='list-item' wx:for='{{list}}' wx:key='{{item.id}}'>
+        <view class='avatar'>
+          <image mode='widthFix' src='{{item.avatar}}'></image>
+        </view>
+        <view class='content'>
+          <view class='nickname'>{{item.uname}}</view>
+          <view class='message'>{{item.title}}</view>
+          <view class="show-img">
+            <block wx:if='{{item.content.length == 1}}'>
+              <view class="ul img-one">
+                <view class="li" bindtap='previewImg' wx:for="{{item.content}}" wx:key="{{idx}}" wx:for-index="idx" data-imgidx="{{idx}}" data-listidx="{{index}}">
+                  <image src="{{item}}" bindload="imageLoad" data-index="{{index}}" style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;" lazy-load mode="aspectFill"></image>
+                </view>
+              </view>
+            </block>
+            <block wx:elif='{{item.content.length == 4}}'>
+              <view class="ul img-four">
+                <view class="li" bindtap='previewImg' wx:for="{{item.content}}" wx:key="{{idx}}" wx:for-index="idx" data-imgidx="{{idx}}" data-listidx="{{index}}">
+                  <image src="{{item}}" lazy-load mode="aspectFill"></image>
+                </view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="ul img-other">
+                <view class="li" bindtap='previewImg' wx:if="{{item.content}}" wx:for="{{item.content}}" wx:key="{{idx}}" wx:for-index="idx" data-imgidx="{{idx}}" data-listidx="{{index}}">
+                  <image src="{{item}}" lazy-load mode="aspectFill"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view data-gid='{{item.goods_id}}' bindtap='gotoGoods'>
+            <view class='goods s-flex' wx:if='{{item.goods_info}}'>
+              <view class='goods-cover'>
+                <image mode='widthFix' src='{{item.goods_info.image}}'></image>
+              </view>
+              <view class='goods-name'>
+                <view class='goods-title'>{{item.goods_info.name}}</view>
+                <view class='goods-price'>¥{{item.goods_info.price}}</view>
+              </view>
+            </view>
+            <view class='buy s-flex' wx:if='{{item.goods_info}}'>
+              <view class='buy-avatars s-flex-1'>
+                <image mode='aspectFill' wx:for='{{item.goods_info.buy_user}}' wx:for-item="buyItem" wx:for-index="buyIdx" wx:key='{{buyIdx}}' src='{{buyItem.avatar}}'></image>
+                <text class='buy-num' wx:if='{{item.goods_info.seller_count >= 5}}'>{{item.goods_info.seller_count}}人购买</text>
+              </view>
+              <view class='buy-btn'>我也要</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view  wx:if="{{is_more}}" class="tips">正在加载...</view>
+      <view class="tips" wx:else>^_^已经到底了</view>
+    </scroll-view>
+  </view>
+  <import src="../../footer_shop.wxml" />
+  <template is="footer" data="{{tablebar}}" />
+  <view wx:if="{{can_post}}" class='add_post' bindtap='goPost'><text class="m-icon m-icon-add_post"></text></view>
+</view>
