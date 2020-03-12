@@ -23,12 +23,14 @@ Page({
     tabList: [
       { id: 0, name: '到点自提', dispatching: 'pickup', enabled: false },
       { id: 1, name: '免费配送', dispatching: 'tuanz_send', enabled: false },
-      { id: 2, name: '快递配送', dispatching: 'express', enabled: false }
+      { id: 2, name: '快递配送', dispatching: 'express', enabled: false },
+      { id: 3, name: '半小时达', dispatching: 'timingup', enabled: false }
     ],
     originTabList: [
       { id: 0, name: '到点自提', dispatching: 'pickup' },
       { id: 1, name: '免费配送', dispatching: 'tuanz_send'},
-      { id: 2, name: '快递配送', dispatching: 'express'}
+      { id: 2, name: '快递配送', dispatching: 'express'},
+      { id: 3, name: '半小时达', dispatching: 'timingup'}
     ],
     tabIdx: 0,
     region: ['选择地址', '', ''],
@@ -780,11 +782,14 @@ Page({
    * 定位获取地址
    */
   choseLocation: function() {
-    wx.showToast({
-      title: '团长不允许选择地址',
-      icon: "none"
-    });
-    return true;//edit by ff 屏蔽所在位置的选择
+    console.log(this.data.tabIdx);
+    if(this.data.tabIdx==1){
+      wx.showToast({
+        title: '团长不允许更改地址',
+        icon: "none"
+      });
+      return true;//edit by ff 屏蔽所在位置的选择
+    }
     let { tabAddress, tabIdx } = this.data;
     var that = this;
     wx.chooseLocation({
