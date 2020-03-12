@@ -1,0 +1,67 @@
+<!--pages/dynamic/post/post.wxml-->
+<view class='container'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='content'>
+      <textarea class='area' hidden="{{isGoods}}" name="content" placeholder="请输入内容" maxlength='{{max}}' bindinput='textValue'>
+        <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+      </textarea>
+    </view>
+    <view class="img-v">
+      <view class="img" wx:for="{{thumb_img}}" wx:for-item="item" wx:key="{{index}}">
+        <image src="{{item}}" data-imgidx="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+        <view class="delete-btn m-icon m-icon-close" data-imgidx="{{index}}" catchtap="deleteImg"></view>
+      </view>
+    </view>
+    <view class='goods s-flex' wx:if="{{goodsItem}}">
+      <view class='goods-cover'>
+        <image mode='widthFix' src='{{goodsItem.image}}'></image>
+      </view>
+      <view class='goods-name s-flex-1'>
+        <view class='goods-title'>{{goodsItem.name}}</view>
+        <view class='goods-price'>¥{{goodsItem.price}}</view>
+      </view>
+      <view class="delete-btn m-icon m-icon-close" data-gid="{{gid}}" catchtap="deleteGoods"></view>
+    </view>
+    <view class='menu-list'>
+      <view class='menu-icon' bindtap="chooseImg">
+        <text class='m-icon m-icon-xiangce'></text> 图片
+      </view>
+      <view class='menu-icon' bindtap="chooseGoods">
+        <text class='m-icon m-icon-gouwudai'></text> 商品
+      </view>
+    </view>
+    <!-- <view class='switch-btn'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox">
+          <checkbox value="1" color='#ff5777' checked='{{isChecked}}' disabled='{{isDisable}}'/> <text>同步到商品</text>
+        </label>
+      </checkbox-group>
+    </view> -->
+    <view class="btn-area">
+      <button formType="submit">提 交</button>
+    </view>
+  </form>
+</view>
+
+<!-- 商品列表 -->
+<view class='goods_wrapper {{isGoods ? "visible" : ""}}'>
+  <view class='goods-tip s-flex'><view class='goods-tip-name'>商品列表</view><view class='goods-tip-close' bindtap='closeGoods'>关闭</view></view>
+  <scroll-view class='scroll-wrapper' scroll-y enable-back-to-top bindscrolltolower="loadMore">
+    <view class='guess_goods'>
+      <view class='item-wrap' wx:for="{{list}}" wx:key="{{item.goods_id}}" data-index="{{index}}" bindtap='chooseGoodsItem'>
+        <view class='iwf'>
+          <view class='img-wrap'>
+            <image mode='aspectFill' lazy-load='true' src='{{item.image}}'></image>
+          </view>
+          <view class='title'>{{item.name}}</view>
+          <view class='bot_box clearfix'>
+            <view class='p_price fl'>¥{{item.price}}</view>
+            <view class='p_feed fr'>已售{{item.seller_count}}件</view>
+          </view>
+        </view>
+      </view>
+      <view  wx:if="{{is_more}}" class="tips">正在加载...</view>
+      <view class="tips" wx:else>^_^已经到底了</view>
+    </view>
+  </scroll-view>
+</view>

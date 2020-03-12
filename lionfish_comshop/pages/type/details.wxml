@@ -1,0 +1,23 @@
+<view class="wrap">
+  <view class="cate-list" wx:for="{{rushList}}" wx:key="id" wx:if="{{rushList.length}}">
+    <image class='topic-img' src="{{item.cate_info.banner}}" mode="widthFix" wx:if="{{index==0&&item.cate_info.banner}}"></image>
+    <view class="cate-title">
+      <image class='title-img' src="{{item.cate_info.logo}}" mode="widthFix" wx:if="{{item.cate_info.logo}}"></image>
+    </view>
+    <view class="list">
+      <i-rush-spu class="item" wx:for="{{item.list}}" wx:if="{{item.list.length}}" wx:for-index="idx" wx:key="idx" wx:for-item="goodsItem" spuItem="{{goodsItem}}" reduction="{{reduction}}" stopClick="{{stopClick}}" bind:openSku="openSku" needAuth="{{needAuth}}" bind:authModal="authModal" bind:changeCartNum="changeCartNum" width250="{{true}}" ></i-rush-spu>
+    </view>
+    <i-load-more iClass="loadMore" loading="{{loadMore}}" tip="{{loadText}}" wx:if="{{!loadOver&&!showEmpty&&loadMore}}"></i-load-more>
+  </view>
+  <view class="none-rush-list" wx:if="{{showEmpty}}">
+    <image class="img-block" src="../../images/icon-index-empty.png"></image>
+    <view class="h1">暂时没有团购</view>
+    <view class="h2">我们正在为您准备更优惠的团购</view>
+  </view>
+  <i-cart-btn cartNum="{{cartNum}}" iClass="{{is_show_cate_tabbar==1?'cartBtn':''}}" wx:if="{{is_show_cate_tabbar!=1}}"></i-cart-btn>
+  <i-aside-btn showShare="{{true}}" showHome="{{is_show_cate_tabbar!=1}}" showContact="{{is_show_cate_tabbar==1}}"></i-aside-btn>
+  <i-tabbar currentIdx='-1' cartNum='{{cartNum}}' class="tabbar {{isIpx?'pb20':''}}" wx:if="{{is_show_cate_tabbar==1}}" />
+</view>
+
+<i-new-auth needAuth="{{needAuth&&showAuthModal}}" bind:authSuccess="authSuccess" bind:cancel="authModal"></i-new-auth>
+<sku visible="{{visible}}" skuList="{{skuList}}" cur_sku_arr="{{cur_sku_arr}}" bind:cancel="closeSku" sku_val="{{sku_val}}" sku="{{sku}}" goodsid="{{addCar_goodsid}}" bind:changeCartNum="changeCartNum"></sku>

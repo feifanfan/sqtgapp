@@ -1,0 +1,228 @@
+/* flex */
+.i-flex {
+  display: flex;
+}
+
+.i-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.i-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.i-flex-item {
+  flex: 1;
+}
+
+.i-flex-alc {
+  justify-content: center;
+  align-items: center;
+}
+
+.i-flex-spb {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.i-aic {
+  align-items: center;
+}
+
+.jcontent-sb {
+  justify-content: space-between;
+}
+
+.jcontent-sa {
+  justify-content: space-around;
+}
+
+.weight {
+  font-weight: bold;
+}
+
+.text-overflow1 {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.text-overflow2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* 字体大小 */
+.fsz-22 {
+  font-size: 22rpx;
+}
+
+.fsz-24 {
+  font-size: 24rpx;
+}
+
+.fsz-26 {
+  font-size: 26rpx;
+}
+
+.fsz-28 {
+  font-size: 28rpx;
+}
+
+.fsz-30 {
+  font-size: 30rpx;
+}
+
+.fsz-32 {
+  font-size: 32rpx;
+}
+
+.fsz-34 {
+  font-size: 34rpx;
+}
+
+/* 字体颜色 */
+.text-gray {
+  color: #999;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-dark {
+  color: #000;
+}
+
+.text-sucess {
+  color: #5cb85c!important;
+}
+
+.text-warning {
+  color: #f0ad4e!important;
+}
+
+.red {
+  color: #ff5344;
+}
+
+.bule {
+  color: rgb(59,140,232);
+}
+
+/* 背景 */
+.bg-f {
+  background-color: #fff;
+}
+
+.bg-blue {
+  background-color: rgb(59,140,232);
+}
+
+.bg-primary {
+  background-color: #ff5344;
+}
+
+.bg-lighter {
+  background-color: #f8f8f8;
+}
+
+.bg-ccc {
+  background: #ccc!important;
+}
+
+.bg-sucess {
+  background: #5cb85c!important;
+}
+
+.bg-warning {
+  background: #f0ad4e!important;
+}
+
+/* 边距 */
+.mb5 {
+  margin-bottom: 10rpx;
+}
+
+.mt5 {
+  margin-top: 10rpx;
+}
+
+.my10 {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.mb10 {
+  margin-bottom: 20rpx;
+}
+
+.mb20 {
+  margin-bottom: 40rpx;
+}
+
+.m15 {
+  margin: 30rpx;
+}
+
+.p15 {
+  padding: 30rpx;
+}
+
+.pb10 {
+  padding-bottom: 20rpx!important;
+}
+
+.pb15 {
+  padding-bottom: 30rpx;
+}
+
+.pb20 {
+  padding-bottom: 40rpx;
+}
+
+.p30 {
+  padding: 30rpx;
+}
+
+.w0 {
+  width: 0;
+}
+
+.rounded-mini {
+  border-radius: 5rpx;
+}
+
+.rounded {
+  border-radius: 10rpx;
+}
+
+.border-bottom {
+  position: relative;
+}
+
+.border-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid #e5e5e5;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+}
+
+.line-through {
+  text-decoration: line-through;
+}

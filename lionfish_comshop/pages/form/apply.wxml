@@ -1,0 +1,43 @@
+<view class='gcs-box'>
+  <!-- 个人资料 -->
+  <view class="gcs-info card">
+    <form bindsubmit="formSubmit">
+      <view class="card-header">
+        <view class="title">xxx申请</view>
+      </view>
+      <view class="card-body">
+        <view class="info-item">
+          <view class="item-title">店铺名称</view>
+          <view class="item-content">
+            <input name="head_name" value="{{headInfo.head_name}}" bindfocus="iptFocus" bindblur="iptBlur" data-name="headName" placeholder="请输入团长名称" />
+          </view>
+        </view>
+        <view class="info-item">
+          <view class="item-title">老板名称</view>
+          <view class="item-content">
+            <input name="boss_name" value="{{headInfo.boss_name}}" bindfocus="iptFocus" bindblur="iptBlur" data-name="bossName" placeholder="请输入团长名称" />
+          </view>
+        </view>
+        <view class="bot-line {{currentFocus=='bossName'?'focus':''}}"></view>
+        <view class="info-item">
+          <view class="item-title">手机号</view>
+          <view class="item-content">
+            <input name="head_mobile" type="number" value="{{headInfo.head_mobile}}" bindfocus="iptFocus" bindblur="iptBlur" data-name="headMobile" placeholder="请输入手机号" />
+          </view>
+        </view>
+        <view class="bot-line {{currentFocus=='headMobile'?'focus':''}}"></view>
+        <view class='info-item'>
+          <view class="item-title">营业执照（图片）</view>
+          <i-choose-image bind:on-changeImage="changeImg" bind:on-chooseImage="chooseImage" imgMax="{{imgMax}}" key="evaluate" token="{{token}}"></i-choose-image>
+        </view>
+        <view class='info-item'>
+          <view class="item-title">其他证件（图片）</view>
+          <component-choose-image bind:on-changeImage="changeImgOther" bind:on-chooseImage="chooseImageOther" imgMax="{{imgMax}}" key="other" token="{{token}}"></component-choose-image>
+        </view>
+      </view>
+      <view class="edit-btn">
+        <button loading="{{btnLoading}}" form-type="submit">保存</button>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,175 @@
+.foot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  border-top: 1rpx solid #ccc;
+  text-align: center;
+  height: 100rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.foot-item .btn {
+  line-height: 1.2;
+  background: transparent;
+  font-size: 24rpx;
+  padding: 0;
+  color: #666;
+}
+
+.foot-item .btn::after {
+  border: 0;
+}
+
+.foot-item .iconfont {
+  color: #333;
+  font-size: 42rpx;
+  display: inline-block;
+}
+
+.foot-item .iconfont.active {
+  color: #ff5344!important;
+}
+
+.foot-item .cart-num {
+  position: absolute;
+  right: -16rpx;
+  top: -4rpx;
+  width: 36rpx;
+  height: 36rpx;
+  background: #f43530;
+  border-radius: 36rpx;
+  color: #fff;
+  font-size: 22rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.topImg {
+  width: 100%;
+  vertical-align: top;
+}
+
+.com-tit {
+  font-size: 32rpx;
+  color: #1a1d21;
+  padding-bottom: 20rpx;
+}
+
+.title {
+  font-size: 45rpx;
+  color: #1a1d21;
+  padding: 15rpx 0;
+}
+
+.desc {
+  font-size: 24rpx;
+  color: #b0b2b5;
+}
+
+.userinfo {
+  margin-top: 30rpx;
+}
+
+.avatar {
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+  margin-right: 24rpx;
+}
+
+.p {
+  color: #666;
+  font-size: 26rpx;
+  line-height: 1.8;
+  margin-top: 20rpx;
+}
+
+.list-box {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.wxParse-p image {
+  max-width: 100% !important;
+}
+
+.list-tit {
+  color: #333;
+  font-size: 28rpx;
+}
+
+/* 视频 */
+.media-box {
+  position: relative;
+}
+
+.btn_view {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+.btn_view image {
+  width: 120rpx;
+  height: 120rpx;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  animation: playScale 2s ease-in-out infinite;
+}
+
+.video-wrap, .swiper-video {
+  width: 100%;
+  /* height: 100%; */
+  vertical-align: top;
+}
+
+.end-play {
+  position: relative;
+  z-index: 1000;
+  background: #000;
+  text-align: center;
+  padding: 20rpx 0;
+}
+
+.end-play .btn {
+  display: inline-block;
+  padding: 5rpx 30rpx;
+  background-color: #f6f6f6;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+@keyframes playScale {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+.canvas-img {
+  position: absolute;
+  top: -20000rpx;
+}

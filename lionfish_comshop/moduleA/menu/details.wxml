@@ -1,0 +1,89 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+
+<view class="wrap">
+  <view class="media-box" wx:if="{{info.images}}">
+    <!-- 图片 -->
+    <view class='video-wrap' wx:if="{{info.video!=''&&info.video!=null}}">
+      <view wx:if="{{fmShow==true}}">
+        <view class='btn_view centerboth' wx:if="{{info.video==''}}"></view>
+        <view class='btn_view centerboth' wx:else bindtap='btnPlay'>
+          <image src='../../images/play.png'></image>
+        </view>
+        <image class="topImg" src="{{info.images}}" mode="widthFix" bindload="imageLoad" lazy-load="true"></image>
+      </view>
+      <video class='swiper-video' hidden="{{fmShow}}" id="myVideo" src="{{info.video}}" bindended="videEnd" style="min-height:{{imageSize.imageHeight}}px"></video>
+    </view>
+    <image wx:else="{{info.images}}" class="topImg" src="{{info.images}}" mode="widthFix"></image>
+  </view>
+  <view hidden="{{fmShow}}" class='end-play' bindtap='endPlay'>
+    <text class='btn'>退出播放</text>
+  </view>
+  <!-- 只有视频 -->
+  <view>
+    <video wx:if="{{info.video&&!info.images}}" id="myVideo" src="{{info.video}}" autoplay controls style="width:100%;"></video>
+  </view>
+  <!-- 信息 -->
+  <view class="bg-f mb10 p15">
+    <view class="title weight">{{info.recipe_name}}</view>
+    <view class="desc" wx:if="{{info.make_time||info.diff_name}}">
+      <text wx:if="{{info.make_time}}">制作时间：{{info.make_time}} |</text>
+      <text wx:if="{{info.diff_name}}"> 难度：{{info.diff_name}}</text>
+    </view>
+    <view class="userinfo">
+      <view class="i-flex i-aic">
+        <image wx:if="{{info.avatar}}" class="avatar" src="{{info.avatar}}"></image>
+        <text wx:if="{{info.username}}" class="weight" style="font-size:26rpx;">{{info.username}}</text>
+      </view>
+      <view class="p" wx:if="{{info.sub_name}}">{{info.sub_name}}</view>
+    </view>
+  </view>
+
+  <!-- 食材 -->
+  <view class="list bg-f mb10 pb15" wx:if="{{info.recipe_ingredients.length}}">
+    <view class="com-tit weight p15" style="padding-bottom:0;">清单</view>
+    <view wx:for="{{info.recipe_ingredients}}" wx:key="{{index}}">
+      <view class="list-tit p15" wx:if="{{item.ingredients_title}}">
+        <text class="weight">·</text> {{item.ingredients_title}}</view>
+      <view class="list-box" wx:if="{{item.goods}}">
+        <block wx:for="{{item.goods}}" wx:key="{{idx}}" wx:for-item="good" wx:for-index="idx">
+          <i-goods-item spuItem="{{good}}" bind:openSku="openSku" needAuth="{{needAuth}}" bind:authModal="authModal" bind:changeCartNum="changeCartNum"></i-goods-item>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 步骤 -->
+  <view class="details bg-f p15" wx:if="{{info.content}}">
+    <view class="com-tit weight">详情</view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+    </view>
+  </view>
+
+  <view class="pb100"></view>
+  <!-- 底部 -->
+  <view class="foot i-flex i-flex-alc bg-f">
+    <view class="i-flex-item foot-item" bindtap="goLink" data-link="switchTo:/lionfish_comshop/pages/order/shopCart">
+      <view style="position: relative; display:inline-block;">
+        <text class="cart-num" wx:if="{{cartNum>0}}">{{cartNum}}</text>
+        <text class="iconfont icon-gouwuche"></text>
+      </view>
+      <view>购物车</view>
+    </view>
+    <view class="i-flex-item foot-item" bindtap="agree">
+      <text class="iconfont icon-xinaixin {{info.has_fav==1?'active':''}}" style="color:#d1d2d2;"></text>
+      <view>喜欢 {{info.fav_count}}</view>
+    </view>
+    <view class="i-flex-item foot-item">
+      <button class="btn" open-type="share">
+        <text class="iconfont icon-fenxiang"></text>
+        <view class="name">分享</view>
+      </button>
+    </view>
+  </view>
+</view>
+
+<canvas canvasId="myCanvas" class="canvas-img" style="width: {{canvasWidth}}px;height: {{canvasHeight}}px;"></canvas>
+
+<i-new-auth needAuth="{{needAuth&&showAuthModal}}" bind:authSuccess="authSuccess" bind:cancel="authModal" needPosition="{{true}}"></i-new-auth>
+<sku visible="{{visible}}" skuList="{{skuList}}" cur_sku_arr="{{cur_sku_arr}}" bind:cancel="closeSku" sku_val="{{sku_val}}" sku="{{sku}}" goodsid="{{addCar_goodsid}}" bind:changeCartNum="changeCartNum"></sku>

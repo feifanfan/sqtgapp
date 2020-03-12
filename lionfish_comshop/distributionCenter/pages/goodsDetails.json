@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "推广收益",
+  "navigationBarBackgroundColor": "#ff5344",
+  "usingComponents": {
+    "i-load-more": "../../components/load-more/index"
+  }
+}
