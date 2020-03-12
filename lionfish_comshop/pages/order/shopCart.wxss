@@ -232,9 +232,13 @@
 }
 
 .swiper-out-button-content {
-  height: 100%;
-  width: 140rpx;
+  /* height: 100%; */
+  /* width: 140rpx; */
   border-bottom: 1rpx solid #efefef;
+  position: absolute;
+  right: 60rpx;
+  top: 40rpx;
+
 }
 
 .swiper-out-button-content:last-child {
@@ -245,12 +249,17 @@
   padding: 0;
   margin: 0;
   height: 100%;
-  background: #ff5344;
+  /* background: #ff5344; */
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-size: 28rpx;
+  position: absolute;
+  top: -70rpx;
+  right: -10rpx;
+
+
 }
 
 .cart-item {

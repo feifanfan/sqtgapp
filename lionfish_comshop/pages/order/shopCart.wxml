@@ -135,6 +135,9 @@
                     <view wx:else bindtap="delete" class="delete-icon" data-parentid="{{index}}" data-index="{{idx}}" data-id="{{shopcarts.id}}">
                       <image src="../../images/icon-shop-delete.png"></image>删除
                     </view>
+                    <view class="swiper-out-button-content" slot="button" style="">
+                      <view bindtap="delete" class="delete-btn" data-parentid="{{index}}" data-index="{{idx}}" data-id="{{shopcarts.id}}"><image src="http://sqpt.oss-cn-qingdao.aliyuncs.com/Uploads/image/goods/2020-03-11/5e685b9903792.png" style="height:30px;width:30px;"></image></view>
+                    </view>
                   </view>
                 </view>
                 <view class="piece-reduce" wx:if="{{shopcarts.can_man_jian && item.is_open_fullreduction==1}}" style='display:none;'>
