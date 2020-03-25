@@ -121,7 +121,18 @@
         </swiper>
       </view>
     </view>
-
+    <!-- 调查投票模块 -->
+    <view style="padding-bottom:20rpx;">
+      <view>
+        <view class="question">问题</view>
+        <view class="answer">
+          <view class="answer-option">答案1</view>
+          <view class="answer-option">答案2</view>
+          <view class="answer-option">答案3</view>
+          <view class="answer-option">答案4</view>
+        </view>
+      </view>
+    </view>
     <!-- 魔方图 -->
     <template is="cube" data="{{data:cube}}"></template>
   </view>
