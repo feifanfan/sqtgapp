@@ -9,6 +9,8 @@ var timerOut = '';
 
 Page(Object.assign({}, countDownInit.default, {
   data: {
+    showSurvey: 'block',
+    questionList:[],
     needAuth: false,
     stopClick: false,
     community: {},
@@ -91,6 +93,7 @@ Page(Object.assign({}, countDownInit.default, {
   postion: {},
   options: '',
   focusFlag: false,
+  
 
   /**
    * 监控滚动事件
@@ -262,13 +265,14 @@ Page(Object.assign({}, countDownInit.default, {
 
   loadPage: function() {
     wx.showLoading();
-    console.log('step8');
+    console.log('du');
     let that = this;
     that.get_index_info();
     that.get_type_topic();
     that.getNavigat();
     that.getCoupon();
     that.getPinList();
+    that.getSurvey();
 
     status.loadStatus().then(function() {
       let appLoadStatus = app.globalData.appLoadStatus;
@@ -2147,5 +2151,51 @@ Page(Object.assign({}, countDownInit.default, {
       success: function() {},
       fail: function() {}
     };
-  }
+  },
+  /**提交调查表 */
+  questionSubmit:function(e){
+    var member_id = wx.getStorageSync('member_id');
+    console.log('数据：',JSON.stringify(e.detail.value));
+    app.util.request({
+      url: 'entry/wxapp/index',
+      data: {
+        controller: 'survey.commit',
+        member_id: member_id,
+        data: JSON.parse(e.detail.value),
+      },
+      dataType: 'json',
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
+  /**获取调查问卷 */
+  getSurvey:function(){
+    let that = this;
+    console.log('获取调查问卷');
+    var member_id = wx.getStorageSync('member_id');
+    app.util.request({
+      url: 'entry/wxapp/index',
+      data: {
+        controller: 'survey.getSurvey',
+        member_id: member_id,
+      },
+      dataType: 'json',
+      success: function (res) {
+        let result = res.data;
+        console.log('获取调查问卷成功',result.code);
+        if (result.code==0){
+          that.setData({
+            showSurvey:'none',
+          })
+        }else{
+          let questionList = result.data;
+          console.log(questionList);
+          that.setData({
+            questionList
+          })
+        }
+      }
+    })
+  },
 }))

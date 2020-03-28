@@ -122,16 +122,25 @@
       </view>
     </view>
     <!-- 调查投票模块 -->
-    <view style="padding-bottom:20rpx;">
-      <view>
-        <view class="question">问题</view>
+    <view class="question-module" style="padding-bottom:20rpx;display:{{showSurvey}}" >
+    <form bindsubmit="questionSubmit">
+      <view wx:for="{{questionList}}" wx:key="id" wx:for-index="idx" wx:for-item="questionItem">
+      <view class="question">
+        <view class="question-option" style="color: {{notice_setting.font_color}};background:{{notice_setting.background_color}};">{{questionItem.question}}</view>
         <view class="answer">
-          <view class="answer-option">答案1</view>
-          <view class="answer-option">答案2</view>
-          <view class="answer-option">答案3</view>
-          <view class="answer-option">答案4</view>
+          <radio-group name='question_{{questionItem.id}}' >
+            <view class="answer-option" wx:for="{{questionItem.answer}}" wx:for-item="answerItem">
+              <radio class="option-answer" value="{{answerItem.answer_id}}">{{answerItem.answer_option}}</radio>
+              <view class="option-image">
+                <image src="{{answerItem.answer_image}}"></image>
+              </view>
+            </view>
+          </radio-group>
+        </view>
         </view>
       </view>
+      <button class="quetion-submit" form-type='submit'>提交</button>
+      </form>
     </view>
     <!-- 魔方图 -->
     <template is="cube" data="{{data:cube}}"></template>
