@@ -2154,18 +2154,37 @@ Page(Object.assign({}, countDownInit.default, {
   },
   /**提交调查表 */
   questionSubmit:function(e){
+    var that = this;
     var member_id = wx.getStorageSync('member_id');
-    console.log('数据：', JSON.parse(JSON.stringify(e.detail.value)[0]));
+    console.log(e.detail.value);
+    for (let i in e.detail.value){
+      if(i!='question_'){
+        if (e.detail.value[i]==''){
+          wx.showToast({
+            title: '您有问题未选择',
+            icon:'none'
+          })
+          return false;
+        }
+      }
+    }
     app.util.request({
       url: 'entry/wxapp/index',
       data: {
         controller: 'survey.commit',
         member_id: member_id,
-        data: JSON.stringify(e.detail.value),
+        data: e.detail.value,
       },
       dataType: 'json',
       success: function (res) {
-        console.log(res);
+        if(res.data.code==1){
+          wx.showToast({
+            title: res.data.message,
+          });
+          that.setData({
+            showSurvey: 'none'
+          })
+        }
       }
     })
   },
@@ -2189,11 +2208,14 @@ Page(Object.assign({}, countDownInit.default, {
             showSurvey:'none',
           })
         }else{
-          let questionList = result.data;
-          console.log(questionList);
-          that.setData({
-            questionList
-          })
+          if(member_id){
+            let questionList = result.data;
+            questionList.length = Object.getOwnPropertyNames(questionList).length - 1;
+            console.log(questionList);
+            that.setData({
+              questionList
+            })
+          }
         }
       }
     })

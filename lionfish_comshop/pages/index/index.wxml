@@ -123,13 +123,13 @@
     </view>
     <!-- 调查投票模块 -->
     <view class="question-module" style="padding-bottom:20rpx;display:{{showSurvey}}" >
-    <form bindsubmit="questionSubmit">
+    <form bindsubmit="questionSubmit" wx:if="{{questionList.length>0}}">
       <view wx:for="{{questionList}}" wx:key="id" wx:for-index="idx" wx:for-item="questionItem">
       <view class="question">
         <view class="question-option" style="color: {{notice_setting.font_color}};background:{{notice_setting.background_color}};">{{questionItem.question}}</view>
         <view class="answer">
           <radio-group name='question_{{questionItem.id}}' >
-            <view class="answer-option" wx:for="{{questionItem.answer}}" wx:for-item="answerItem">
+            <view class="answer-option" wx:for="{{questionItem.answer}}" wx:key="idq" wx:for-index="idqx" wx:for-item="answerItem">
               <radio class="option-answer" value="{{answerItem.answer_id}}">{{answerItem.answer_option}}</radio>
               <view class="option-image">
                 <image src="{{answerItem.answer_image}}"></image>
