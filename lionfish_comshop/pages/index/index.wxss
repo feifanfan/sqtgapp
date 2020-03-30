@@ -1694,19 +1694,19 @@ button[plain] {
   text-align: center;
 }
 .answer-option{
-  width: 50%;
+  width: 25%;
   text-align: center;
   float: left;
 }
 .option-image{
   text-align: center;
-  width: 200rpx;
-  height: 200rpx;
+  width: 150rpx;
+  height: 180rpx;
   margin: 0 auto;
 }
 .option-image image{
-  width: 200rpx;
-  height: 200rpx;
+  width: 150rpx;
+  height: 150rpx;
 }
 .option-answer{
   background: #fff9f4;
