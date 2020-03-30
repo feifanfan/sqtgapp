@@ -2155,13 +2155,13 @@ Page(Object.assign({}, countDownInit.default, {
   /**提交调查表 */
   questionSubmit:function(e){
     var member_id = wx.getStorageSync('member_id');
-    console.log('数据：',JSON.stringify(e.detail.value));
+    console.log('数据：', JSON.parse(JSON.stringify(e.detail.value)[0]));
     app.util.request({
       url: 'entry/wxapp/index',
       data: {
         controller: 'survey.commit',
         member_id: member_id,
-        data: JSON.parse(e.detail.value),
+        data: JSON.stringify(e.detail.value),
       },
       dataType: 'json',
       success: function (res) {
